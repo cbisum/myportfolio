@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
+
+$fontFamily: 'Piedra', cursive;
+$bgcolor: hsl(0, 89%, 75%);
+
+nav{
+    top: 100px;
+    background-color:$bgcolor;
+    display:grid;
+    grid-template-columns:auto auto;
+    width: 100%;
+    justify-content: space-around; 
+}
+
+.animation{
+    height:10px;
+    background-image: linear-gradient(to bottom right, #c8ff00, #c8ff00 );
+    animation: anim 4s ease;
+}
+
+@keyframes anim {
+    from {
+        width: 0%;
+    }
+
+    to{
+        width: 100%;;
+    }
+}
+
+.logo{
+    padding-top: 12px;
+    li{
+        list-style-type: none;
+        color:#c8ff00;
+        font-size: 40px;
+        cursor: pointer;
+        font-family: $fontFamily;
+        font-weight: bold;
+        border: 5px solid #c8ff00;
+        padding: 10px;
+    }
+
+    li:hover{
+        border-color: blue;
+    }
+
+    li:active{
+        border-color:#c8ff00 ;
+    }
+}
+
+.underbar{
+    left: 68%;
+    width: 0;
+    height: 5px;
+    background: rgba(100,100,200,0);
+    position: absolute;
+    top:62px;
+    transition: 0.5s ease;
+}
+
+ul{
+    display: inline-block;
+
+    li{
+        list-style-type: none;
+        display: inline-block;
+        padding: 20px 25px;
+        color:#c8ff00;
+        font-size: 25px;
+        cursor: pointer;
+       font-family:$fontFamily ;
+
+       &:hover:first-child~ .underbar{
+        left: 54%;
+        width: 94px;
+        background: tomato;
+        box-shadow: 0 0 10px tomato;
+        }
+
+        &:hover:nth-child(2)~ .underbar{
+            left: 63%;
+            width: 70px;
+            background: tomato;
+            box-shadow: 0 0 10px tomato;
+        }
+
+        &:hover:nth-child(3)~ .underbar{
+            left: 70%;
+            width: 82px;
+            background: tomato;
+            box-shadow: 0 0 10px tomato;
+        }
+
+        &:hover:nth-child(4) ~ .underbar{
+            left: 78.5%;
+            width: 85px;
+            background: tomato;
+            box-shadow: 0 0 10px tomato;
+        }
+    }
+
+}
+
+.link{
+    text-decoration:none;
+    color: #c8ff00;
+
+    &:hover{
+        color: blue;
+    }
+
+    &:active{
+        color: #c8ff00;
+    }
+    
+}
+
+
+@media screen and (max-width:1440px){
+    .underbar{
+        display:none;
+    }
+}
+
+.menu-btn{
+    position:relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    border: 4px solid #c8ff00;
+
+    .menu-btn_burger{
+        width: 50px;
+        height: 6px;
+        background-color:#c8ff00;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+    }
+
+    .menu-btn_burger::before, .menu-btn_burger::after{
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 6px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+
+    }
+
+    .menu-btn_burger::before{
+        transform: translateY(20px);
+    }
+
+    .menu-btn_burger::after{
+        transform: translateY(-20px);
+    } 
+}
+
+
+
+
+.open{
+    .menu-btn_burger{
+        transform: translateX(-50px);
+        background: transparent;
+        box-shadow: none;
+    }
+}
+
+.open{
+    .menu-btn_burger::before{
+        transform: rotate(45deg) translate(35px, -35px)
+    }
+}
+
+.open{
+    .menu-btn_burger::after{
+        transform: rotate(-45deg) translate(35px, 35px);
+    }
+}
+
+
+
+
+@media screen and (max-width: 680px) {
+    nav{
+        background-color:$bgcolor;
+    }
+
+
+    .menu-btn{
+        top: 6px;
+        display: flex;
+        right: -60px;
+    }
+
+ 
+    .rightnav{
+        display: none;
+    }
+
+    .logo{
+        right: 80px;
+        position: relative;
+        top:-6px
+    }
+}
+
+.sidenav{
+    width: 100%;
+    z-index: 1;
+    top:-400px;
+    position: absolute;
+    background-color: $bgcolor;
+    transition: top 2s;
+    ul{
+        li{
+            display: block;
+        }
+    }
+}
