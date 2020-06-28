@@ -11,7 +11,7 @@ app.use(require('./routes/All'))
 
 //production code
 
-if(process.env.NODE_ENV=='porduction'){
+if(process.env.NODE_ENV=='production'){
     app.use(express.static('myportfolio/build'))
     const path = require('path')
     app.get('*',(req,res)=>{
